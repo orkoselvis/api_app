@@ -1,4 +1,5 @@
 class AuthenticationController < ApplicationController
+  skip_before_action :authorize_request, only: :authenticate
 
   def authenticate
     auth_token =
@@ -10,5 +11,5 @@ class AuthenticationController < ApplicationController
   def auth_params
     params.permit(:email, :password)
   end
-  
+
 end

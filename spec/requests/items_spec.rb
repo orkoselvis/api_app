@@ -2,13 +2,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Items API' do
-  # Initialize the test data
   let!(:todo) { create(:todo) }
   let!(:items) { create_list(:item, 20, todo_id: todo.id) }
   let(:todo_id) { todo.id }
   let(:id) { items.first.id }
 
-  # Test suite for GET /todos/:todo_id/items
   describe 'GET /todos/:todo_id/items' do
     before { get "/todos/#{todo_id}/items" }
 
@@ -35,7 +33,6 @@ RSpec.describe 'Items API' do
     end
   end
 
-  # Test suite for GET /todos/:todo_id/items/:id
   describe 'GET /todos/:todo_id/items/:id' do
     before { get "/todos/#{todo_id}/items/#{id}" }
 
@@ -62,7 +59,6 @@ RSpec.describe 'Items API' do
     end
   end
 
-  # Test suite for PUT /todos/:todo_id/items
   describe 'POST /todos/:todo_id/items' do
     let(:valid_attributes) { { name: 'Visit Narnia', done: false } }
 
@@ -87,7 +83,6 @@ RSpec.describe 'Items API' do
     end
   end
 
-  # Test suite for PUT /todos/:todo_id/items/:id
   describe 'PUT /todos/:todo_id/items/:id' do
     let(:valid_attributes) { { name: 'Mozart' } }
 
@@ -117,7 +112,6 @@ RSpec.describe 'Items API' do
     end
   end
 
-  # Test suite for DELETE /todos/:id
   describe 'DELETE /todos/:id' do
     before { delete "/todos/#{todo_id}/items/#{id}" }
 
