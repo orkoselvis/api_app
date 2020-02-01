@@ -9,6 +9,8 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'will_paginate', '~> 3.1.0'
 
 group :test do
   gem 'factory_bot_rails', '~> 4.0'
@@ -19,6 +21,7 @@ end
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.9'
+  gem 'faker'
   gem 'faker'
 end
 
